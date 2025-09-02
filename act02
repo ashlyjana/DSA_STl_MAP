@@ -1,0 +1,40 @@
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+int main() {
+    map<string, int> ageMap;
+
+    ageMap.insert({"Jana", 20});
+    ageMap.insert(make_pair("Fairy", 30));
+    ageMap["Saja"] = 28;
+    ageMap["Diana"] = 32;
+    ageMap["Maria"] = 27;
+
+    cout << "Original Map" << endl;
+    for (const auto& entry : ageMap) {
+        cout << entry.first << " - " << entry.second << endl;
+    }
+
+    ageMap["Maria"] = 29; 
+
+    string searchName = "Fairy";
+    auto it = ageMap.find(searchName);
+    if (it != ageMap.end()) {
+        cout << "\n" << searchName << " found, Age = " << it->second << endl;
+    } else {
+        cout << "\n" << searchName << " not found." << endl;
+    }
+    
+    ageMap.erase("Saja");
+
+    cout << " Map after modification" << endl;
+    cout << "Map size: " << ageMap.size() << endl;
+    for (const auto& entry : ageMap) {
+        cout << entry.first << " - " << entry.second << endl;
+    }
+
+    return 0;
+}
+
