@@ -1,0 +1,29 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+void displayGrades(const map<char, int>& grades) {
+    for (const auto& entry : grades) {
+        cout << "Grade " << entry.first << ": " << entry.second << endl;
+    }
+}
+
+int main() {
+    map<char, int> grades;
+
+    grades['C'] = 75;
+    grades['A'] = 90;
+    grades['E'] = 65;
+    grades['B'] = 85;
+    grades['D'] = 70;
+
+    cout << "Default Map Output (sorted by key)" << endl;
+    for (const auto& entry : grades) {
+        cout << entry.first << " - " << entry.second << endl;
+    }
+
+    cout << "\nCustom Display" << endl;
+    displayGrades(grades);
+
+    return 0;
+}
